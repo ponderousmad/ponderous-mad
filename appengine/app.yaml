@@ -6,6 +6,19 @@ api_version: go1
 handlers:
 - url: /clearpath
   static_dir: clearpath
+  
+- url: /scrace
+  static_dir: scrace
 
 - url: /.*
   script: _go_app
+  
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- .*\.xcf
+- .*\.aup
+- \.git
