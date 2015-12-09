@@ -6,9 +6,12 @@ api_version: go1
 handlers:
 - url: /clearpath
   static_dir: clearpath
-  
+
 - url: /scrace
   static_dir: scrace
+
+- url: /markovio
+  static_dir: markovio
 
 - url: /.*
   script: _go_app
