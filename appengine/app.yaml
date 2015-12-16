@@ -4,6 +4,10 @@ runtime: go
 api_version: go1
 
 handlers:
+- url: /favicon.ico
+  static_files: images/favicon.ico
+  upload: images/favicon.ico
+
 - url: /clearpath
   static_dir: clearpath
 
