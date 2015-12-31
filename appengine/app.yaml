@@ -14,6 +14,9 @@ handlers:
 - url: /scrace
   static_dir: scrace
 
+- url: /opdozitz
+  static_dir: opdozitz
+  
 - url: /markovio
   static_dir: markovio
 
