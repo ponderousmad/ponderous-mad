@@ -17,6 +17,9 @@ handlers:
 - url: /opdozitz
   static_dir: opdozitz
   
+- url: /spoonful
+  static_dir: spoonful
+  
 - url: /markovio
   static_dir: markovio
 
