@@ -20,6 +20,9 @@ handlers:
 - url: /spoonful
   static_dir: spoonful
   
+- url: /blow-up
+  static_dir: blow-up
+  
 - url: /markovio
   static_dir: markovio
 
