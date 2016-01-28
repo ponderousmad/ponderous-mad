@@ -221,4 +221,18 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+
+##########################
+## Local dev scripts
+##########################
+
+goprompt.bat
+goprompt.scpt
+goprompt.sh
+goprompt.app/
 serve.bat
+serve.scpt
+serve.sh
+serve.app/
+
