@@ -8,9 +8,6 @@ handlers:
   static_files: images/favicon.ico
   upload: images/favicon.ico
 
-- url: /clearpath
-  static_dir: clearpath
-
 - url: /scrace
   static_dir: scrace
 
