@@ -7,24 +7,31 @@ handlers:
 - url: /favicon.ico
   static_files: images/favicon.ico
   upload: images/favicon.ico
+  secure: always
 
 - url: /scrace
   static_dir: scrace
+  secure: always
 
 - url: /opdozitz
   static_dir: opdozitz
+  secure: always
   
 - url: /spoonful
   static_dir: spoonful
+  secure: always
   
 - url: /blow-up
   static_dir: blow-up
+  secure: always
   
 - url: /markovio
   static_dir: markovio
+  secure: always
 
 - url: /.*
   script: _go_app
+  secure: always
   
 skip_files:
 - ^(.*/)?#.*#$
