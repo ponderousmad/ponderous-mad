@@ -17,7 +17,7 @@ type Post struct {
 
 func init() {
         http.HandleFunc("/", root)
-        http.HandleFunc("/post", post)
+        http.HandleFunc("/.well-known/acme-challenge/", letsencrypt)
 }
 
 func root(w http.ResponseWriter, r *http.Request) {
@@ -39,17 +39,11 @@ func split_newline(s string) []string {
 
 var postsTemplate = template.Must(template.New("index").Funcs(template.FuncMap{"split": split_newline,}).ParseFiles("html/index.html"))
 
-func post(w http.ResponseWriter, r *http.Request) {
-        c := appengine.NewContext(r)
-        post := Post{
-                Content: r.FormValue("content"),
-                Date:    time.Now(),
+func letsencrypt(w http.ResponseWriter, r *http.Request) {
+        w.Header().Set("Content-Type", "text/plain")
+        challenge := ""
+        response := ""
+        if strings.HasSuffix(r.URL.Path, challenge) {
+            w.Write([]byte(response))
         }
-        key := datastore.NewIncompleteKey(c, "Post", nil)
-        _, err := datastore.Put(c, key, &post)
-        if err != nil {
-                http.Error(w, err.Error(), http.StatusInternalServerError)
-                return
-        }
-        http.Redirect(w, r, "/", http.StatusFound)
 }
