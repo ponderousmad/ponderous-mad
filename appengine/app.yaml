@@ -25,6 +25,10 @@ handlers:
   static_dir: blow-up
   secure: always
   
+- url: /com-bust-a-move
+  static_dir: com-bust-a-move
+  secure: always
+  
 - url: /markovio
   static_dir: markovio
   secure: always
