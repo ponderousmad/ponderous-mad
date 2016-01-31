@@ -25,8 +25,8 @@ handlers:
   static_dir: blow-up
   secure: always
   
-- url: /com-bust-a-move
-  static_dir: com-bust-a-move
+- url: /combust-a-move
+  static_dir: combust-a-move
   secure: always
   
 - url: /markovio
