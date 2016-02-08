@@ -32,6 +32,10 @@ handlers:
 - url: /markovio
   static_dir: markovio
   secure: always
+  
+- url: /pipevo
+  static_dir: pipevo
+  secure: always
 
 - url: /.*
   script: _go_app
