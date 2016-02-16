@@ -50,4 +50,5 @@ skip_files:
 - .*\.xcf
 - .*\.aup
 - .*\.md
+- .*\.java
 - \.git
