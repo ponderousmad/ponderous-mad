@@ -36,6 +36,10 @@ handlers:
 - url: /pipevo
   static_dir: pipevo
   secure: always
+  
+- url: /wordevo
+  static_dir: wordevo
+  secure: always
 
 - url: /.*
   script: _go_app
