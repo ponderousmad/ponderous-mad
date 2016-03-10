@@ -40,6 +40,10 @@ handlers:
 - url: /wordevo
   static_dir: wordevo
   secure: always
+  
+- url: /tapwords
+  static_dir: tapwords
+  secure: always
 
 - url: /.*
   script: _go_app
