@@ -21,6 +21,10 @@ handlers:
   static_dir: spoonful
   secure: always
   
+- url: /specialtivity
+  static_dir: specialtivity
+  secure: always
+  
 - url: /blow-up
   static_dir: blow-up
   secure: always
