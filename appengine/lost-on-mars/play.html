@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Lost On Mars</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="UnityProgress.js"></script>
+  </head>
+  <body class="template">
+    <p class="header"><span>Unity WebGL Player | </span>Lost On Mars</p>
+    <div class="template-wrap clear">
+      <img class="spaceappslogo" src="spaceapps.svg">
+      <div class="title"><img src="lostlogo.png"></div>
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
+      <br>
+      <div class="fullscreen"><img src="fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
+      <div class="info">Find the crater, but mark your route by dropping beacons using the <strong>space bar</strong>. There's a dust storm due!</div>
+      <div class="info">Best played with headphones.</div>
+    </div>
+    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 536870912,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+    dataUrl: "deploy/Release/deploy.data",
+    codeUrl: "deploy/Release/deploy.js",
+    memUrl: "deploy/Release/deploy.mem",
+  };
+</script>
+<script src="deploy/Release/UnityLoader.js"></script>
+
+  </body>
+</html>

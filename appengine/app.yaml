@@ -48,6 +48,10 @@ handlers:
 - url: /tapwords
   static_dir: tapwords
   secure: always
+  
+- url: /lost-on-mars
+  static_dir: lost-on-mars
+  secure: always
 
 - url: /.*
   script: _go_app
