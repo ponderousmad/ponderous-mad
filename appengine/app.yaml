@@ -53,6 +53,10 @@ handlers:
   static_dir: tapwords
   secure: always
   
+- url: /tojam11
+  static_dir: tojam11
+  secure: always
+  
 - url: /lost-on-mars
   static_dir: lost-on-mars
   secure: always
