@@ -29,6 +29,10 @@ handlers:
   static_dir: blow-up
   secure: always
   
+- url: /blitblort
+  static_dir: blitblort
+  secure: always
+  
 - url: /combust-a-move
   static_dir: combust-a-move
   secure: always
