@@ -37,6 +37,10 @@ handlers:
   static_dir: combust-a-move
   secure: always
   
+- url: /c3d
+  static_dir: c3d
+  secure: always
+
 - url: /markovio
   static_dir: markovio
   secure: always
