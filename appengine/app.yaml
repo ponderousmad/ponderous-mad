@@ -53,10 +53,6 @@ handlers:
   static_dir: wordevo
   secure: always
 
-- url: /random
-  static_dir: random
-  secure: always
-
 - url: /tapwords
   static_dir: tapwords
   secure: always
