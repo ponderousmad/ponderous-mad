@@ -4,7 +4,7 @@ html, body {
 .projectContainer {
     margin: 50px;
     perspective: 800px;
-    perspective-origin: center
+    perspective-origin: 500px 400px;
 }
 
 .projectBlock {
