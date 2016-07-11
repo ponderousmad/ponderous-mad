@@ -26,3 +26,19 @@ html, body {
     width: 140px;
     margin: 5px;
 }
+
+.profileBox {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: right;
+}
+.profileBox div {
+    display: inline-block;
+    text-decoration:inherit;
+}
+
+.profileBox div div {
+    display: inline-block;
+    text-decoration:inherit;
+}
