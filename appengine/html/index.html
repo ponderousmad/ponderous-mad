@@ -91,20 +91,4 @@
         <!-- <a href="/spoonful/game.html">Spoonful</a> -->
     </div>
     </body>
-    <script>
-        var container = document.getElementById("perspectiveOrigin");
-        var body = document.body,
-            html = document.documentElement;
-        function updatePerspective() {
-            var height = Math.max(body.scrollHeight, body.offsetHeight, 
-                                  html.clientHeight, html.scrollHeight, html.offsetHeight);
-            height -= window.innerHeight;
-            var fraction = window.scrollY / height;
-            container.style["perspective-origin"] = "center " + ((0.5 + (fraction * 0.5)) * 100) + "%";
-        }
-        updatePerspective();
-        window.addEventListener('scroll', function(e) {
-            updatePerspective();
-        });
-    </script>
 </html>
