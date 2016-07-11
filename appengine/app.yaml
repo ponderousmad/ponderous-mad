@@ -64,6 +64,14 @@ handlers:
 - url: /lost-on-mars
   static_dir: lost-on-mars
   secure: always
+  
+- url: /css
+  static_dir: css
+  secure: always
+  
+- url: /images
+  static_dir: images
+  secure: always
 
 - url: /.*
   script: _go_app

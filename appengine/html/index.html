@@ -2,50 +2,71 @@
 <html>
   <head>
     <title>ponderousmad</title>
+    <link href="css/projects.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Game Jam Games & Hackathons</h1>
-    <div>
-        <a href="/tojam11/index.html">(R)Elapse</a>
-        <ul>
-            <li>For Toronto Game Jam: Don't stop bEleven</a></li>
-            <li>Theme was "There will be Consequences"</li>
-        </ul>
-    </div>
-    <div>
-        <a href="/lost-on-mars/play.html">Lost On Mars</a>
-        <ul>
-            <li>For Nasa Space Apps Challenge 2016</a></li>
-            <li>Catagory: Journey to Mars, Challenge: SimSpace</li>
-        </ul>
-    </div>
-    <div>
-        <a href="/combust-a-move/game.html">Combust-A-Move</a>
-        <ul>
-            <li>For Global Game Jam 2016</a></li>
-            <li>Theme was "Ritual"</li>
-        </ul>
-    </div>
-    <div>
-        <a href="/blow-up/game.html">Blow-UP</a>
-        <ul>
-            <li>For <a href="https://bacongamejam.org/jams/bacongamejam-10/">BaconGameJam 10</a></li>
-            <li>Theme was "One Weapon - Many Uses"</li>
-        </ul>
-    </div>
-    <div>
-        <a href="/scrace/game.html">Scrace</a>
-        <ul>
-            <li>First Reddit Game Jam</a></li>
-            <li>Theme was "Space"</li>
-        </ul>
-    </div>
-    <div>
-        <a href="/opdozitz/game.html">Opdozitz</a>
-        <ul>
-            <li>Second Reddit Game Jam</a></li>
-            <li>Theme was "Opposites"</li>
-        </ul>
+    <h1>Game Jam Games &amp; Hackathons</h1>
+    <div class="projectContainer" id="perspectiveOrigin">
+        <div id="projectBlock">
+            <div class="leftScreenshot"><img src="images/relapse1.png" alt="Relapse Title Screen"/></div>
+            <div class="centerInfo">
+                <a href="/tojam11/index.html">(R)Elapse</a>
+                <ul>
+                    <li>For Toronto Game Jam: Don't stop bEleven</li>
+                    <li>Theme was "There will be Consequences"</li>
+                </ul>
+            </div>
+        </div>
+        <div id="projectBlock">
+            <div class="leftScreenshot"><img src="images/lost-on-mars1.png" alt="Lost On Mars Title Screen"/></div>
+            <div class="centerInfo">
+                <a href="/lost-on-mars/play.html">Lost On Mars</a>
+                <ul>
+                    <li>For Nasa Space Apps Challenge 2016</li>
+                    <li>Catagory: Journey to Mars, Challenge: SimSpace</li>
+                </ul>
+            </div>
+        </div>
+        <div id="projectBlock">
+            <div class="leftScreenshot"><img src="images/combust-a-move1.png" alt="Combust-A-Move Title Screen"/></div>
+            <div class="centerInfo">
+                <a href="/combust-a-move/game.html">Combust-A-Move</a>
+                <ul>
+                    <li>For Global Game Jam 2016</li>
+                    <li>Theme was "Ritual"</li>
+                </ul>
+            </div>
+        </div>
+        <div id="projectBlock">
+            <div class="leftScreenshot"><img src="images/blow-up1.png" alt="Blow-Up Title Screen"/></div>
+            <div class="centerInfo">
+                <a href="/blow-up/game.html">Blow-UP</a>
+                <ul>
+                    <li>For <a href="https://bacongamejam.org/jams/bacongamejam-10/">BaconGameJam 10</a></li>
+                    <li>Theme was "One Weapon - Many Uses"</li>
+                </ul>
+            </div>
+        </div>
+        <div id="projectBlock">
+            <div class="leftScreenshot"><img src="images/scrace1.png" alt="Scrace Title Screen"/></div>
+            <div class="centerInfo">
+                <a href="/scrace/game.html">Scrace</a>
+                <ul>
+                    <li>First Reddit Game Jam</li>
+                    <li>Theme was "Space"</li>
+                </ul>
+            </div>
+        </div>
+        <div id="projectBlock">
+            <div class="leftScreenshot"><img src="images/opdozitz1.png" alt="Opdozitz Title Screen"/></div>
+            <div class="centerInfo">
+                <a href="/opdozitz/game.html">Opdozitz</a>
+                <ul>
+                    <li>Second Reddit Game Jam</li>
+                    <li>Theme was "Opposites"</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <h1>Experiments</h1>
     <div>
@@ -70,4 +91,20 @@
         <!-- <a href="/spoonful/game.html">Spoonful</a> -->
     </div>
     </body>
+    <script>
+        var container = document.getElementById("perspectiveOrigin");
+        var body = document.body,
+            html = document.documentElement;
+        function updatePerspective() {
+            var height = Math.max(body.scrollHeight, body.offsetHeight, 
+                                  html.clientHeight, html.scrollHeight, html.offsetHeight);
+            height -= window.innerHeight;
+            var fraction = window.scrollY / height;
+            container.style["perspective-origin"] = "center " + ((0.5 + (fraction * 0.5)) * 100) + "%";
+        }
+        updatePerspective();
+        window.addEventListener('scroll', function(e) {
+            updatePerspective();
+        });
+    </script>
 </html>

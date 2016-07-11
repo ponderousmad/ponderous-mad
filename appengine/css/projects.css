@@ -1,0 +1,26 @@
+html, body {
+}
+
+.projectContainer {
+    perspective: 1000px;
+    perspective-origin: center 80%
+}
+
+.projectBlock {
+}
+
+.leftScreenshot {
+    display: inline-block;
+    transform: rotateY(30deg) translateZ(0px) translateX(10px);
+}
+
+.centerInfo {
+    margin-left: 50px;
+    display: inline-block;
+    transform: rotateY(0deg) translateZ(0px) translateX(0px);
+}
+
+.leftScreenshot img {
+    height: 100px;
+    width: 150px;    
+}
