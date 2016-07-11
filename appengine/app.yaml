@@ -87,4 +87,5 @@ skip_files:
 - .*\.aup
 - .*\.md
 - .*\.java
+- .*/LICENSE
 - \.git
