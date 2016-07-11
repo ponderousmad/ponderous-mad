@@ -2,7 +2,8 @@ html, body {
 }
 
 .projectContainer {
-    perspective: 1000px;
+    margin-left: 5%;
+    perspective: 800px;
     perspective-origin: center
 }
 
@@ -11,16 +12,16 @@ html, body {
 
 .leftScreenshot {
     display: inline-block;
-    transform: rotateY(30deg) translateZ(0px) translateX(10px);
+    transform: translateX(70px) rotateY(45deg) translateX(-70px);
 }
 
 .centerInfo {
-    margin-left: 50px;
     display: inline-block;
+    vertical-align: top;
     transform: rotateY(0deg) translateZ(0px) translateX(0px);
 }
 
 .leftScreenshot img {
     height: 100px;
-    width: 150px;    
+    width: 140px;    
 }
