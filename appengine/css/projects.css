@@ -1,8 +1,22 @@
 html, body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.headerTitle {
+    font-size: 2em;
+    text-transform:capitalize;
+    font-variant:small-caps;
+    font-weight:bold;
+}
+
+.sectionHeader {
+    margin-top: 25px;
+    margin-left: 205px;
 }
 
 .projectContainer {
-    margin: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
     perspective: 800px;
     perspective-origin: 500px 400px;
 }
@@ -18,6 +32,11 @@ html, body {
 .centerInfo {
     display: inline-block;
     vertical-align: top;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    background-color: darkgrey;
+    width: 30em;
     transform: rotateY(0deg) translateZ(0px) translateX(0px);
 }
 
@@ -30,7 +49,7 @@ html, body {
 .profileBox {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 20px;
     text-align: right;
 }
 .profileBox div {
