@@ -2,7 +2,7 @@ html, body {
 }
 
 .projectContainer {
-    margin-left: 5%;
+    margin: 50px;
     perspective: 800px;
     perspective-origin: center
 }
@@ -23,5 +23,6 @@ html, body {
 
 .leftScreenshot img {
     height: 100px;
-    width: 140px;    
+    width: 140px;
+    margin: 5px;
 }
