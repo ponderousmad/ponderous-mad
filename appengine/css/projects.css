@@ -17,7 +17,11 @@ html, body {
 .projectContainer {
     margin-left: 50px;
     margin-bottom: 50px;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
     perspective: 800px;
+    -webkit-perspective-origin: 500px 800px;
+    -moz-perspective-origin: 500px 800px;
     perspective-origin: 500px 800px;
 }
 
