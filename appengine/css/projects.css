@@ -26,8 +26,117 @@ html, body {
 
 .leftScreenshot {
     display: inline-block;
-    transform: translateX(70px) rotateY(30deg) translateX(-70px);
+   
+    -moz-animation-name: turn;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-fill-mode: forwards;
+
+    -webkit-animation-name: turn;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+
+    animation-name: turn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
+
+.delay1 {
+    -moz-animation-delay: 100ms;
+    -webkit-animation-delay: 100ms;
+    animation-delay: 100ms;
+}
+
+.delay2 {
+    -moz-animation-delay: 200ms;
+    -webkit-animation-delay: 200ms;
+    animation-delay: 200ms;
+}
+
+.delay3 {
+    -moz-animation-delay: 275ms;
+    -webkit-animation-delay: 275ms;
+    animation-delay: 275ms;
+}
+
+.delay4 {
+    -moz-animation-delay: 325ms;
+    -webkit-animation-delay: 325ms;
+    animation-delay: 325ms;
+}
+
+.delay5 {
+    -moz-animation-delay: 350ms;
+    -webkit-animation-delay: 350ms;
+    animation-delay: 350ms;
+}
+
+.delay6 {
+    -moz-animation-delay: 370ms;
+    -webkit-animation-delay: 370ms;
+    animation-delay: 370ms;
+}
+
+.delay7 {
+    -moz-animation-delay: 385ms;
+    -webkit-animation-delay: 385ms;
+    animation-delay: 385ms;
+}
+
+.delay8 {
+    -moz-animation-delay: 390ms;
+    -webkit-animation-delay: 390ms;
+    animation-delay: 390ms;
+}
+
+.delay9 {
+    -moz-animation-delay: 395ms;
+    -webkit-animation-delay: 395ms;
+    animation-delay: 395ms;
+}
+
+.delay10 {
+    -moz-animation-delay: 400ms;
+    -webkit-animation-delay: 400ms;
+    animation-delay: 400ms;
+}
+
+.delay11 {
+    -moz-animation-delay: 400ms;
+    -webkit-animation-delay: 400ms;
+    animation-delay: 400ms;
+}
+
+@-moz-keyframes turn {
+    0% {
+        -moz-transform: translateX(70px) rotateY(0deg) translateX(-70px);
+    }
+    100% {
+        -moz-transform: translateX(70px) rotateY(30deg) translateX(-70px);
+    }
+}
+@-webkit-keyframes turn {
+    0% {
+        -webkit-transform: translateX(70px) rotateY(0deg) translateX(-70px);
+    }
+    100% {
+        -webkit-transform: translateX(70px) rotateY(30deg) translateX(-70px);
+    }
+}
+@keyframes turn {
+    0% {
+        transform: translateX(70px) rotateY(0deg) translateX(-70px);
+    }
+    100% {
+        transform: translateX(70px) rotateY(30deg) translateX(-70px);
+    }
+}
+    
 
 .centerInfo {
     display: inline-block;
