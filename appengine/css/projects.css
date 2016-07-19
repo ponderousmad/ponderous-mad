@@ -17,103 +17,129 @@ html, body {
 .projectContainer {
     margin-left: 50px;
     margin-bottom: 50px;
-    -webkit-perspective: 800px;
-    -moz-perspective: 800px;
-    perspective: 800px;
+    
     -webkit-perspective-origin: 500px 800px;
     -moz-perspective-origin: 500px 800px;
     perspective-origin: 500px 800px;
+    
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    perspective: 800px;
+    
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .projectBlock {
+    -webkit-transform-style: inherit;
+    -moz-transform-style: inherit;
+    transform-style: inherit;
 }
 
 .leftScreenshot {
-    display: inline-block;
-   
+	display: inline-block;
+	position: absolute;
+    
+    -webkit-transform-style: inherit;
+    -moz-transform-style: inherit;
+    transform-style: inherit;
+
     -moz-animation-name: turn;
     -moz-animation-iteration-count: 1;
-    -moz-animation-timing-function: ease-in;
-    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: ease;
+    -moz-animation-duration: 1s;
     -moz-animation-fill-mode: forwards;
 
     -webkit-animation-name: turn;
     -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-in;
-    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-duration: 1s;
     -webkit-animation-fill-mode: forwards;
 
     animation-name: turn;
     animation-iteration-count: 1;
-    animation-timing-function: ease-in;
-    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
 }
 
+.leftScreenshot a { 
+    -webkit-transform-style: inherit;
+    -moz-transform-style: inherit;
+    transform-style: inherit;
+}
+
+.leftScreenshot a img { 
+    -webkit-transform-style: inherit;
+    -moz-transform-style: inherit;
+    transform-style: inherit;
+}
+
 .delay1 {
-    -moz-animation-delay: 100ms;
-    -webkit-animation-delay: 100ms;
-    animation-delay: 100ms;
+    -moz-animation-delay: 500ms;
+    -webkit-animation-delay: 500ms;
+    animation-delay: 500ms;
 }
 
 .delay2 {
-    -moz-animation-delay: 200ms;
-    -webkit-animation-delay: 200ms;
-    animation-delay: 200ms;
+    -moz-animation-delay: 1000ms;
+    -webkit-animation-delay: 1000ms;
+    animation-delay: 1000ms;
 }
 
 .delay3 {
-    -moz-animation-delay: 275ms;
-    -webkit-animation-delay: 275ms;
-    animation-delay: 275ms;
+    -moz-animation-delay: 1450ms;
+    -webkit-animation-delay: 1450ms;
+    animation-delay: 1450ms;
 }
 
 .delay4 {
-    -moz-animation-delay: 325ms;
-    -webkit-animation-delay: 325ms;
-    animation-delay: 325ms;
+    -moz-animation-delay: 1850ms;
+    -webkit-animation-delay: 1850ms;
+    animation-delay: 1850ms;
 }
 
 .delay5 {
-    -moz-animation-delay: 350ms;
-    -webkit-animation-delay: 350ms;
-    animation-delay: 350ms;
+    -moz-animation-delay: 2200ms;
+    -webkit-animation-delay: 2200ms;
+    animation-delay: 2200ms;
 }
 
 .delay6 {
-    -moz-animation-delay: 370ms;
-    -webkit-animation-delay: 370ms;
-    animation-delay: 370ms;
+    -moz-animation-delay: 2500ms;
+    -webkit-animation-delay: 2500ms;
+    animation-delay: 2500ms;
 }
 
 .delay7 {
-    -moz-animation-delay: 385ms;
-    -webkit-animation-delay: 385ms;
-    animation-delay: 385ms;
+    -moz-animation-delay: 2750ms;
+    -webkit-animation-delay: 2750ms;
+    animation-delay: 2750ms;
 }
 
 .delay8 {
-    -moz-animation-delay: 390ms;
-    -webkit-animation-delay: 390ms;
-    animation-delay: 390ms;
+    -moz-animation-delay: 2950ms;
+    -webkit-animation-delay: 2950ms;
+    animation-delay: 2950ms;
 }
 
 .delay9 {
-    -moz-animation-delay: 395ms;
-    -webkit-animation-delay: 395ms;
-    animation-delay: 395ms;
+    -moz-animation-delay: 3100ms;
+    -webkit-animation-delay: 3100ms;
+    animation-delay: 3100ms;
 }
 
 .delay10 {
-    -moz-animation-delay: 400ms;
-    -webkit-animation-delay: 400ms;
-    animation-delay: 400ms;
+    -moz-animation-delay: 3200ms;
+    -webkit-animation-delay: 3200ms;
+    animation-delay: 3200ms;
 }
 
 .delay11 {
-    -moz-animation-delay: 400ms;
-    -webkit-animation-delay: 400ms;
-    animation-delay: 400ms;
+    -moz-animation-delay: 3250ms;
+    -webkit-animation-delay: 3250ms;
+    animation-delay: 3250ms;
 }
 
 @-moz-keyframes turn {
@@ -121,7 +147,7 @@ html, body {
         -moz-transform: translateX(70px) rotateY(0deg) translateX(-70px);
     }
     100% {
-        -moz-transform: translateX(70px) rotateY(30deg) translateX(-70px);
+        -moz-transform: translateX(70px) rotateY(40deg) translateX(-70px);
     }
 }
 @-webkit-keyframes turn {
@@ -129,7 +155,7 @@ html, body {
         -webkit-transform: translateX(70px) rotateY(0deg) translateX(-70px);
     }
     100% {
-        -webkit-transform: translateX(70px) rotateY(30deg) translateX(-70px);
+        -webkit-transform: translateX(70px) rotateY(40deg) translateX(-70px);
     }
 }
 @keyframes turn {
@@ -137,35 +163,24 @@ html, body {
         transform: translateX(70px) rotateY(0deg) translateX(-70px);
     }
     100% {
-        transform: translateX(70px) rotateY(30deg) translateX(-70px);
+        transform: translateX(70px) rotateY(40deg) translateX(-70px);
     }
 }
-    
 
 .centerInfo {
     display: inline-block;
     vertical-align: top;
     border-radius: 10px;
     margin: 5px;
+    margin-left: 155px;
     padding: 10px;
-    background-color: darkgrey;
+    background-color: #F0F0F0;
     width: calc(100% - 200px);
     height: 80px;
     transform: rotateY(0deg) translateZ(0px) translateX(0px);
 }
 
 .leftScreenshot img {
-    height: 100px;
-    width: 140px;
-    margin: 5px;
-}
-
-.rightScreenshot {
-    display: inline-block;
-    transform: translateX(585px) translateX(-70px) rotateY(-30deg) translateX(70px);
-}
-
-.rightScreenshot img {
     height: 100px;
     width: 140px;
     margin: 5px;
