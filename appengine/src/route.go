@@ -15,50 +15,30 @@ import (
 	"time"
 
 	"appengine"
-	"appengine/datastore"
 	"appengine/urlfetch"
 )
 
-type Post struct {
-	Content string `datastore:",noindex"`
-	Date    time.Time
-}
+type handler func(w http.ResponseWriter, r *http.Request)
 
 func init() {
-	http.HandleFunc("/", root)
-	http.HandleFunc("/projects.html", projects)
+	http.HandleFunc("/", pageView("index"))
+	http.HandleFunc("/projects.html", pageView("projects"))
 	http.HandleFunc("/.well-known/acme-challenge/", letsencrypt)
 	http.HandleFunc("/captures/", captures)
 }
 
-func showPage(page *template.Template, path string, w http.ResponseWriter, r *http.Request) {
-	c := appengine.NewContext(r)
-	q := datastore.NewQuery("Post").Order("-Date").Limit(10)
-	posts := make([]Post, 0, 10)
-	if _, err := q.GetAll(c, &posts); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+func pageView(name string) handler {
+	tmpl, parseErr := template.ParseFiles(path.Join("html", name + ".html"))
+	return func(w http.ResponseWriter, r *http.Request) {
+		if parseErr != nil {
+			http.Error(w, parseErr.Error(), http.StatusInternalServerError)
+			return
+		}
+		if err := tmpl.ExecuteTemplate(w, name + ".html", nil); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 	}
-	if err := page.ExecuteTemplate(w, path, posts); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
 }
-
-func root(w http.ResponseWriter, r *http.Request) {
-	showPage(rootTemplate, "index.html", w, r)
-}
-
-func projects(w http.ResponseWriter, r *http.Request) {
-	showPage(projectsTemplate, "projects.html", w, r)
-}
-
-func split_newline(s string) []string {
-	return strings.Split(strings.Replace(s, "\r", "", -1), "\n")
-}
-
-var rootTemplate = template.Must(template.New("index").Funcs(template.FuncMap{"split": split_newline}).ParseFiles("html/index.html"))
-var projectsTemplate = template.Must(template.New("projects").Funcs(template.FuncMap{"split": split_newline}).ParseFiles("html/projects.html"))
-
 
 func letsencrypt(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
