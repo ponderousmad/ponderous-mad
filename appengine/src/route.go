@@ -22,7 +22,7 @@ type handler func(w http.ResponseWriter, r *http.Request)
 
 func init() {
 	http.HandleFunc("/", pageView("index"))
-	http.HandleFunc("/projects.html", pageView("projects"))
+	http.HandleFunc("/vrkspace.html", pageView("vrkspace"))
 	http.HandleFunc("/.well-known/acme-challenge/", letsencrypt)
 	http.HandleFunc("/captures/", captures)
 }
