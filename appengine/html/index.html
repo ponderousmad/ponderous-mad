@@ -5,6 +5,20 @@
         <link href="css/projects.css" rel="stylesheet">
     </head>
     <body>
+        <script type="text/javascript">
+            function anagram(t, s) {
+                var l=t.length,o="",f,i;
+                for (i=0;i<l;++i) {
+                    f=s%(l-i);
+                    o+=t[f];
+                    t=t.slice(0,f)+t.slice(f+1);
+                    s=Math.floor(s/(l-i));
+                }
+                return o;
+            }
+            url=((t,s)=>{l=t.length,o="";for(i=0;i<l;++i){f=s%(l-i);o+=t[f];t=t.slice(0,f)+t.slice(f+1);s=(s-f)/(l-i)}return o})("pseudorandom",165291432)+".com"
+            console.log(url);
+        </script>
         <div class="headerTitle">Ponderous Mad's Projects</div>
         <div class="projectContainer" id="perspectiveOrigin">
             <h1 class="sectionHeader">Game Jam Games &amp; Hackathons</h1>
