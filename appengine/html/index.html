@@ -6,17 +6,42 @@
     </head>
     <body>
         <script type="text/javascript">
-            function anagram(t, s) {
-                var l=t.length,o="",f,i;
-                for (i=0;i<l;++i) {
-                    f=s%(l-i);
-                    o+=t[f];
-                    t=t.slice(0,f)+t.slice(f+1);
-                    s=Math.floor(s/(l-i));
+            function anagram(text, seed) {
+                var output = "", length = text.length;
+                for (var i = 0; i < length; ++i) {
+                    var base = length - i;
+                    var offset = seed % base;
+                    output += text[offset];
+                    text = text.slice(0, offset) + text.slice(offset + 1);
+                    seed = (seed - offset) / base;
                 }
-                return o;
+                return output;
             }
-            url=((t,s)=>{l=t.length,o="";for(i=0;i<l;++i){f=s%(l-i);o+=t[f];t=t.slice(0,f)+t.slice(f+1);s=(s-f)/(l-i)}return o})("pseudorandom",165291432)+".com"
+            console.log(anagram("The cobHill Llamas", 1390614343662697) + "!");
+
+            function findOffset(letter, text) {
+                for (var i = 0; i < text.length; ++i) {
+                    if (text[i] == letter) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+            function deanagram(text, target) {
+                var seed = 0,
+                    offsets = [];
+                for (var i = 0; i < target.length; ++i) {
+                    var offset = findOffset(target[i], text);
+                    text = text.slice(0, offset) + text.slice(offset + 1);
+                    offsets.unshift(offset);
+                }
+                for (var i = 0; i < target.length; ++i) {
+                    seed += (seed * i) + offsets[i];
+                }
+                return seed;
+            }
+            console.log(deanagram("pseudorandom", "ponderousmad"));
+            url=((t,s)=>{l=t.length,o="";for(i=0;i<l;++i){f=s%(l-i);o+=t[f];t=t.slice(0,f)+t.slice(f+1);s=(s-f)/(l-i)}return o})("pseudorandom",166526760)+".com"
             console.log(url);
         </script>
         <div class="headerTitle">Ponderous Mad's Projects</div>
