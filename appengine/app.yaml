@@ -65,8 +65,8 @@ handlers:
   static_dir: lost-on-mars
   secure: always
   
-- url: /ggj2017
-  static_dir: ggj2017
+- url: /wavebreaker
+  static_dir: wavebreaker
   secure: always
   
 - url: /css
