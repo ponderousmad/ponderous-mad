@@ -76,6 +76,12 @@ html, body {
     transform-style: inherit;
 }
 
+.delay0 {
+    -moz-animation-delay: 250ms;
+    -webkit-animation-delay: 250ms;
+    animation-delay: 250ms;
+}
+
 .delay1 {
     -moz-animation-delay: 500ms;
     -webkit-animation-delay: 500ms;
