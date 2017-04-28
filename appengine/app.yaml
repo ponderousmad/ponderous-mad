@@ -91,5 +91,6 @@ skip_files:
 - .*\.aup
 - .*\.md
 - .*\.java
+- .*\.py
 - .*/LICENSE
 - \.git
