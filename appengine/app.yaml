@@ -9,6 +9,10 @@ handlers:
   upload: images/favicon.ico
   secure: always
 
+- url: /arcake
+  static_dir: arcake
+  secure: always
+
 - url: /scrace
   static_dir: scrace
   secure: always
