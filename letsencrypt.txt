@@ -1,0 +1,5 @@
+./letsencrypt-auto --debug -a manual certonly
+
+sudo openssl rsa -inform pem -in /etc/letsencrypt/live/ponderousmad.com/privkey.pem -outform pem | less
+
+sudo less /etc/letsencrypt/live/ponderousmad.com/fullchain.pem
