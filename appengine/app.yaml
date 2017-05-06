@@ -65,6 +65,10 @@ handlers:
   static_dir: tojam11
   secure: always
   
+- url: /tojam12
+  static_dir: tojam12
+  secure: always
+  
 - url: /lost-on-mars
   static_dir: lost-on-mars
   secure: always
