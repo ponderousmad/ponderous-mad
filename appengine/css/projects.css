@@ -143,9 +143,15 @@ html, body {
 }
 
 .delay11 {
-    -moz-animation-delay: 3250ms;
-    -webkit-animation-delay: 3250ms;
-    animation-delay: 3250ms;
+    -moz-animation-delay: 3300ms;
+    -webkit-animation-delay: 3300ms;
+    animation-delay: 3300ms;
+}
+
+.delay12 {
+    -moz-animation-delay: 3400ms;
+    -webkit-animation-delay: 3400ms;
+    animation-delay: 3400ms;
 }
 
 @-moz-keyframes turn {
