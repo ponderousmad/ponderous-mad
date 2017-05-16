@@ -28,19 +28,19 @@ handlers:
 - url: /specialtivity
   static_dir: specialtivity
   secure: always
-  
+
 - url: /blow-up
   static_dir: blow-up
   secure: always
-  
-- url: /blitblort
-  static_dir: blitblort
+
+- url: /blitblort-demo
+  static_dir: blitblort-demo
   secure: always
-  
+
 - url: /combust-a-move
   static_dir: combust-a-move
   secure: always
-  
+
 - url: /c3d
   static_dir: c3d
   secure: always
@@ -52,7 +52,7 @@ handlers:
 - url: /pipevo
   static_dir: pipevo
   secure: always
-  
+
 - url: /wordevo
   static_dir: wordevo
   secure: always
@@ -60,27 +60,27 @@ handlers:
 - url: /tapwords
   static_dir: tapwords
   secure: always
-  
+
 - url: /tojam11
   static_dir: tojam11
   secure: always
-  
+
 - url: /tojam12
   static_dir: tojam12
   secure: always
-  
+
 - url: /lost-on-mars
   static_dir: lost-on-mars
   secure: always
-  
+
 - url: /wavebreaker
   static_dir: wavebreaker
   secure: always
-  
+
 - url: /css
   static_dir: css
   secure: always
-  
+
 - url: /images
   static_dir: images
   secure: always
@@ -88,7 +88,7 @@ handlers:
 - url: /.*
   script: _go_app
   secure: always
-  
+
 skip_files:
 - ^(.*/)?#.*#$
 - ^(.*/)?.*~$
