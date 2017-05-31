@@ -15,6 +15,10 @@ handlers:
   static_dir: scrace
   secure: always
 
+- url: /greyfield
+  static_dir: greyfield
+  secure: always
+
 - url: /opdozitz
   static_dir: opdozitz
   secure: always
