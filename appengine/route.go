@@ -20,11 +20,40 @@ import (
 
 type handler func(w http.ResponseWriter, r *http.Request)
 
+type Project struct {
+	Name string
+	Page string
+}
+
 func init() {
 	http.HandleFunc("/", pageView("index"))
 	http.HandleFunc("/vrkspace.html", pageView("vrkspace"))
 	http.HandleFunc("/.well-known/acme-challenge/", letsencrypt)
 	http.HandleFunc("/captures/", captures)
+
+	projects := []Project{
+		Project{"arcake", "index"},
+		Project{"blow-up", "game"},
+		Project{"blitblort-demo", "index"},
+		Project{"c3d", "index"},
+		Project{"combust-a-move", "game"},
+		Project{"greyfield", "index"},
+		Project{"lost-on-mars", "play"},
+		Project{"markovio", "fourier"},
+		Project{"opdozitz", "game"},
+		Project{"pipevo", "game"},
+		Project{"scrace", "game"},
+		Project{"tapwords", "tapwords"},
+		Project{"tojam11", "index"},
+		Project{"tojam12", "index"},
+		Project{"wavebreaker", "index"},
+		Project{"wordevo", "evo"},
+	}
+
+	for _, project := range projects {
+		http.HandleFunc("/" + project.Name + "/", projectPage(project))
+		http.HandleFunc("/" + project.Name, projectPage(project))
+	}
 }
 
 func pageView(name string) handler {
@@ -46,6 +75,30 @@ func letsencrypt(w http.ResponseWriter, r *http.Request) {
 	response := ""
 	if strings.HasSuffix(r.URL.Path, challenge) {
 		w.Write([]byte(response))
+	}
+}
+
+func projectPage(project Project) handler {
+	return func(w http.ResponseWriter, r *http.Request) {
+		pathParts := strings.Split(r.URL.Path, "/")
+		ctx := appengine.NewContext(r)
+		ctx.Infof("Requested URL: %v", r.URL.Path)
+		ctx.Infof("Parts: %v", pathParts)
+
+		if (len(pathParts) < 3) {
+			http.Redirect(w, r, "/" + project.Name + "/" + project.Page + ".html", 302)
+			return
+		}
+		tmpl, parseErr := template.ParseFiles(path.Join("html","404.html"))
+		if parseErr != nil {
+			http.Error(w, parseErr.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.WriteHeader(http.StatusNotFound)
+		if err := tmpl.ExecuteTemplate(w, "404.html", project); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 }
 

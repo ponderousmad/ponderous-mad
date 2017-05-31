@@ -7,76 +7,84 @@ handlers:
   upload: images/favicon.ico
   secure: always
 
-- url: /arcake
-  static_dir: arcake
+- url: /arcake/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: arcake/\1
+  upload: arcake/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /scrace
-  static_dir: scrace
+- url: /blitblort-demo/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: blitblort-demo/\1
+  upload: blitblort-demo/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /greyfield
-  static_dir: greyfield
+- url: /blow-up/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: blow-up/\1
+  upload: blow-up/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /opdozitz
-  static_dir: opdozitz
+- url: /c3d/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: c3d/\1
+  upload: c3d/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
+  secure: always
+
+- url: /combust-a-move/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: combust-a-move/\1
+  upload: combust-a-move/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
+  secure: always
+
+- url: /greyfield/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: greyfield/\1
+  upload: greyfield/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
+  secure: always
+
+- url: /lost-on-mars/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3|datagz|memgz|jsgz))$
+  static_files: lost-on-mars/\1
+  upload: lost-on-mars/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3|datagz|memgz|jsgz)$
+  secure: always
+
+- url: /markovio/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: markovio/\1
+  upload: markovio/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
+  secure: always
+
+- url: /opdozitz/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: opdozitz/\1
+  upload: opdozitz/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
   
-- url: /spoonful
-  static_dir: spoonful
-  secure: always
-  
-- url: /specialtivity
-  static_dir: specialtivity
+- url: /pipevo/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3|slur))$
+  static_files: pipevo/\1
+  upload: pipevo/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3|slur)$
   secure: always
 
-- url: /blow-up
-  static_dir: blow-up
+- url: /scrace/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: scrace/\1
+  upload: scrace/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /blitblort-demo
-  static_dir: blitblort-demo
+- url: /tapwords/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: tapwords/\1
+  upload: tapwords/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /combust-a-move
-  static_dir: combust-a-move
+- url: /tojam11/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: tojam11/\1
+  upload: tojam11/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /c3d
-  static_dir: c3d
+- url: /tojam12/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: tojam12/\1
+  upload: tojam12/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /markovio
-  static_dir: markovio
-  secure: always
-  
-- url: /pipevo
-  static_dir: pipevo
+- url: /wavebreaker/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: wavebreaker/\1
+  upload: wavebreaker/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
-- url: /wordevo
-  static_dir: wordevo
-  secure: always
-
-- url: /tapwords
-  static_dir: tapwords
-  secure: always
-
-- url: /tojam11
-  static_dir: tojam11
-  secure: always
-
-- url: /tojam12
-  static_dir: tojam12
-  secure: always
-
-- url: /lost-on-mars
-  static_dir: lost-on-mars
-  secure: always
-
-- url: /wavebreaker
-  static_dir: wavebreaker
+- url: /wordevo/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3|txt))$
+  static_files: wordevo/\1
+  upload: wordevo/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3|txt)$
   secure: always
 
 - url: /css
