@@ -154,6 +154,12 @@ html, body {
     animation-delay: 3400ms;
 }
 
+.delay13 {
+    -moz-animation-delay: 3500ms;
+    -webkit-animation-delay: 3500ms;
+    animation-delay: 3500ms;
+}
+
 @-moz-keyframes turn {
     0% {
         -moz-transform: translateX(70px) rotateY(0deg) translateX(-70px);
