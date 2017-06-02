@@ -23,6 +23,7 @@ type handler func(w http.ResponseWriter, r *http.Request)
 type Project struct {
 	Name string
 	Page string
+	Rename string
 }
 
 func init() {
@@ -32,27 +33,31 @@ func init() {
 	http.HandleFunc("/captures/", captures)
 
 	projects := []Project{
-		Project{"arcake", "index"},
-		Project{"blow-up", "game"},
-		Project{"blitblort-demo", "index"},
-		Project{"c3d", "index"},
-		Project{"combust-a-move", "game"},
-		Project{"greyfield", "index"},
-		Project{"lost-on-mars", "play"},
-		Project{"markovio", "fourier"},
-		Project{"opdozitz", "game"},
-		Project{"pipevo", "game"},
-		Project{"scrace", "game"},
-		Project{"tapwords", "tapwords"},
-		Project{"tojam11", "index"},
-		Project{"tojam12", "index"},
-		Project{"wavebreaker", "index"},
-		Project{"wordevo", "evo"},
+		Project{"arcake", "index", ""},
+		Project{"blow-up", "game", ""},
+		Project{"blitblort-demo", "index", "blitblort"},
+		Project{"c3d", "index", ""},
+		Project{"combust-a-move", "game", ""},
+		Project{"greyfield", "index", ""},
+		Project{"lost-on-mars", "play", ""},
+		Project{"markovio", "fourier", ""},
+		Project{"opdozitz", "game", ""},
+		Project{"pipevo", "game", ""},
+		Project{"scrace", "game", ""},
+		Project{"tapwords", "tapwords", ""},
+		Project{"tojam11", "index", "relapse"},
+		Project{"tojam12", "index", "jelly-jelly"},
+		Project{"wavebreaker", "index", ""},
+		Project{"wordevo", "evo", ""},
 	}
 
 	for _, project := range projects {
 		http.HandleFunc("/" + project.Name + "/", projectPage(project))
 		http.HandleFunc("/" + project.Name, projectPage(project))
+		if (len(project.Rename) > 0) {
+			http.HandleFunc("/" + project.Rename + "/", projectPage(project))
+			http.HandleFunc("/" + project.Rename, projectPage(project))
+		}
 	}
 }
 
@@ -81,11 +86,7 @@ func letsencrypt(w http.ResponseWriter, r *http.Request) {
 func projectPage(project Project) handler {
 	return func(w http.ResponseWriter, r *http.Request) {
 		pathParts := strings.Split(r.URL.Path, "/")
-		ctx := appengine.NewContext(r)
-		ctx.Infof("Requested URL: %v", r.URL.Path)
-		ctx.Infof("Parts: %v", pathParts)
-
-		if (len(pathParts) < 3) {
+		if (len(pathParts) < 3 || len(pathParts[2]) == 0) {
 			http.Redirect(w, r, "/" + project.Name + "/" + project.Page + ".html", 302)
 			return
 		}
