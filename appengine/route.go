@@ -63,7 +63,22 @@ func init() {
 
 func pageView(name string) handler {
 	tmpl, parseErr := template.ParseFiles(path.Join("html", name + ".html"))
+	tmpl404, parseErr404 := template.ParseFiles(path.Join("html","404.html"))
 	return func(w http.ResponseWriter, r *http.Request) {
+		pathParts := strings.Split(r.URL.Path, "/")
+		if (len(pathParts) > 1 && len(pathParts[1]) > 0 && !strings.HasSuffix(r.URL.Path, name + ".html")) {
+			if parseErr404 != nil {
+				http.Error(w, parseErr.Error(), http.StatusInternalServerError)
+				return
+			}
+			w.WriteHeader(http.StatusNotFound)
+			if err := tmpl404.ExecuteTemplate(w, "404.html", nil); err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			return;
+		}
+
 		if parseErr != nil {
 			http.Error(w, parseErr.Error(), http.StatusInternalServerError)
 			return
@@ -90,13 +105,13 @@ func projectPage(project Project) handler {
 			http.Redirect(w, r, "/" + project.Name + "/" + project.Page + ".html", 302)
 			return
 		}
-		tmpl, parseErr := template.ParseFiles(path.Join("html","404.html"))
+		tmpl, parseErr := template.ParseFiles(path.Join("html","project404.html"))
 		if parseErr != nil {
 			http.Error(w, parseErr.Error(), http.StatusInternalServerError)
 			return
 		}
 		w.WriteHeader(http.StatusNotFound)
-		if err := tmpl.ExecuteTemplate(w, "404.html", project); err != nil {
+		if err := tmpl.ExecuteTemplate(w, "project404.html", project); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
