@@ -2,4 +2,4 @@
 
 sudo openssl rsa -inform pem -in /etc/letsencrypt/live/ponderousmad.com/privkey.pem -outform pem | less
 
-sudo less /etc/letsencrypt/live/ponderousmad.com/fullchain.pem
+sudo cat /etc/letsencrypt/live/ponderousmad.com/fullchain.pem
