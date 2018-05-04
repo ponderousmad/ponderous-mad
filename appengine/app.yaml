@@ -77,6 +77,11 @@ handlers:
   upload: tojam12/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
   secure: always
 
+- url: /tojam13/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
+  static_files: tojam13/\1
+  upload: tojam13/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
+  secure: always
+
 - url: /wavebreaker/(.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3))$
   static_files: wavebreaker/\1
   upload: wavebreaker/.*\.(png|jpg|svg|html|css|js|json|ogg|wav|mp3)$
