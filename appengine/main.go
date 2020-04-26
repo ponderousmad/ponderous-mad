@@ -1,4 +1,4 @@
-package ponderousmad
+package main
 
 import (
 	"encoding/csv"
@@ -6,16 +6,15 @@ import (
 	"html/template"
 	"io"
 	"io/ioutil"
+	"log"
 	"math/rand"
 	"net/http"
 	"net/url"
+	"os"
 	"path"
 	"strconv"
 	"strings"
 	"time"
-
-	"appengine"
-	"appengine/urlfetch"
 )
 
 type handler func(w http.ResponseWriter, r *http.Request)
@@ -26,7 +25,7 @@ type Project struct {
 	Rename string
 }
 
-func init() {
+func main() {
 	http.HandleFunc("/", pageView("index"))
 	http.HandleFunc("/vrkspace.html", pageView("vrkspace"))
 	http.HandleFunc("/.well-known/acme-challenge/", letsencrypt)
@@ -58,6 +57,17 @@ func init() {
 			http.HandleFunc("/" + project.Rename + "/", projectPage(project))
 			http.HandleFunc("/" + project.Rename, projectPage(project))
 		}
+	}
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s", port)
+	}
+	
+	log.Printf("Listening on port %s", port)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Fatal(err)
 	}
 }
 
@@ -161,9 +171,6 @@ func setupCaptureIDs(w http.ResponseWriter) {
 }
 
 func captures(w http.ResponseWriter, r *http.Request) {
-	ctx := appengine.NewContext(r)
-	client := urlfetch.Client(ctx)
-
 	setupCaptureIDs(w)
 
 	pathParts := strings.Split(r.URL.Path, "/")
@@ -181,7 +188,7 @@ func captures(w http.ResponseWriter, r *http.Request) {
 	captureEntry, lookupOk := captureIDs[imageName]
 	if lookupOk {
 		baseURL := "https://drive.google.com/uc?export=download&id="
-		response, fetchErr := client.Get(baseURL + captureEntry.id)
+		response, fetchErr := http.Get(baseURL + captureEntry.id)
 		if fetchErr != nil {
 			http.Error(w, fetchErr.Error(), http.StatusInternalServerError)
 			return
